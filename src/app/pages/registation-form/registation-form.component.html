@@ -1,0 +1,44 @@
+<mat-card>
+<form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
+  <div>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Favorite food</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="Sushi">
+    </mat-form-field>
+  </div>
+  <!-- Name -->
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name" formControlName="name">
+    <!-- error -->
+    <mat-error *ngIf="errorHandling('name', 'required')">
+      You must provide a <strong>student name</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Email -->
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="email">
+    <!-- error -->
+    <mat-error *ngIf="errorHandling('email', 'required')">
+      You must provide a <strong>email</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Gender -->
+  <div class="misc-bottom-padding">
+    <mat-label>Gender:</mat-label>
+    <mat-radio-group aria-label="Select an option" formControlName="gender">
+      <mat-radio-button value="Male">Male</mat-radio-button>
+      <mat-radio-button value="Female">Female</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+
+
+  <!-- Submit -->
+  <div class="button-wrapper">
+    <button mat-flat-button color="primary">Submit</button>
+  </div>
+</form>
+</mat-card>
