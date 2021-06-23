@@ -4,7 +4,7 @@
       <div  class="example-header-image"></div>
       <mat-card-title>User Registation</mat-card-title>
     </mat-card-header>
-  <form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
+  <form [formGroup]="myForm" #f="ngForm" (ngSubmit)="submitForm()" novalidate>
     <!-- Email -->
     <div>
     <mat-form-field class="example-full-width">
@@ -27,7 +27,7 @@
   </div><br>
     <!-- Submit -->
   <div class="button-wrapper">
-      <button mat-flat-button color="primary">Submit</button>
+      <button mat-flat-button [disabled]="!f.valid" color="primary">Submit</button>
     </div>
   </form>
   </mat-card>

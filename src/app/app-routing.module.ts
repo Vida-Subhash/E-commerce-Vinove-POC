@@ -8,11 +8,11 @@ import { UserloginFormComponent } from './pages/userlogin-form/userlogin-form.co
 import { AuthGaurdService } from './service/auth-gaurd/auth-gaurd.service';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: '/login',
-  //   pathMatch: 'full'
-  // },
+  {
+    path: ' ',
+    redirectTo: '/signup',
+    pathMatch: 'full'
+  },
   {
     path: 'signup',
     component: RegistationFormComponent

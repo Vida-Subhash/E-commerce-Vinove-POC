@@ -1,10 +1,14 @@
 <div class="container">
+
+  <div *ngIf="authService.isLoading | async" class="loader-container">
+    <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+  </div>
 <mat-card>
   <mat-card-header>
     <div  class="example-header-image"></div>
     <mat-card-title>User Registation</mat-card-title>
   </mat-card-header>
-<form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
+<form [formGroup]="myForm" #f="ngForm" (ngSubmit)="submitForm()" novalidate>
   <!-- Name -->
   <div>
   <mat-form-field class="example-full-width">
@@ -56,7 +60,8 @@
 
   <!-- Submit -->
   <div class="button-wrapper">
-    <button mat-flat-button color="primary">Submit</button>
+    <button mat-flat-button [disabled]="!f.valid"  color="primary">Submit</button>
+    <button style="padding-left: 40px;" mat-button type="button" [disableRipple]= "true" color="primary">Already Registered User.</button>
   </div>
 </form>
 </mat-card>

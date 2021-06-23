@@ -1,0 +1,1 @@
+Created Server.js file for sending Mail for User Registation.

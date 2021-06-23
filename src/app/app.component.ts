@@ -13,9 +13,7 @@ export class AppComponent {
   click() {
       // this.LoggedIn = true;
       this.toastr.success('Success');
-      this.productService.getAllProduct().subscribe( res => {
-        console.log(res);
-      })
+      this.productService.getAllProduct();
     //   this.http.get<any>("http://localhost:3000/products")
     //   .pipe(map((res:any ) => {
     //     console.log(res);

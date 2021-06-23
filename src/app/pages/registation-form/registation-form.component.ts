@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { user } from 'src/app/modal/user,modal';
 import { AuthService } from 'src/app/service/auth-service/auth.service';
@@ -15,8 +16,9 @@ export class RegistationFormComponent implements OnInit {
   userModal: user = new user();
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
-    private toastr: ToastrService) {}
+    public authService: AuthService,
+    private toastr: ToastrService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.reactiveForm();
@@ -45,11 +47,23 @@ export class RegistationFormComponent implements OnInit {
     this.userModal.email = this.myForm.value.email;
     this.userModal.password = this.myForm.value.password;
     this.userModal.gender = this.myForm.value.gender;
+    let user  = {
+      name: this.myForm.value.name,
+      email: this.myForm.value.email,
+    }
     this.authService.postUser(this.userModal).subscribe( res => {
       console.log(res);
       this.toastr.success("User registered Sucessfully.")
       this.myForm.reset();
+      this.router.navigateByUrl('signin');
     });
+    this.authService.sendVerificationEmail(user).subscribe( res => {
+      console.log("Regsitation Mail send", res);
+    },
+    err => {
+      console.log(err);
+    }
+    )
 }
 
 

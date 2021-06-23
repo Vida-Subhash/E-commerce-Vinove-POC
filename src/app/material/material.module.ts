@@ -21,7 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [],
   imports: [
@@ -49,7 +49,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatChipsModule,
     MatTooltipModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule { }

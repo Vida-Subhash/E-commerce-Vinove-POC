@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { MaterialModule } from './material/material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { RegistationFormComponent } from './pages/registation-form/registation-form.component';
@@ -17,6 +17,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductComponent } from './pages/product/product.component';
 import { CheckOutComponent } from './pages/check-out/check-out.component';
 import { AuthGaurdService } from './service/auth-gaurd/auth-gaurd.service';
+import { IntercepterService } from './service/intercepter/intercepter.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,16 @@ import { AuthGaurdService } from './service/auth-gaurd/auth-gaurd.service';
        preventDuplicates: true,
       }),
   ],
-  providers: [HttpClientModule, AuthService, AuthGaurdService],
+  providers: [
+    HttpClientModule,
+     AuthService,
+     AuthGaurdService,
+    {
+       provide: HTTP_INTERCEPTORS,
+       useClass: IntercepterService,
+        multi: true
+    }
+      ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

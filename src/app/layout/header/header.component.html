@@ -2,19 +2,14 @@
   <mat-toolbar color="primary">
     <span>E-commerce App</span>
     <span class="example-spacer"></span>
+    <div *ngIf="isLoggedIn">
     <button style="padding-right: 40px;" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon  matBadge="15" MatBadgeSize="large" matBadgeColor="warn">shopping_cart</mat-icon>
-      <!-- <span class="material-icons-outlined">
-        shopping_cart
-        </span> -->
     </button>
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-
-     <mat-icon > logout</mat-icon>
-      <!-- <span class="material-icons-two-tone">
-        logout
-        </span> -->
+       <mat-icon > logout</mat-icon>
     </button>
+  </div>
   </mat-toolbar>
 </p>
 
