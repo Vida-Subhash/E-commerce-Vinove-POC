@@ -1,38 +1,56 @@
+<div class="container">
 <mat-card>
+  <mat-card-header>
+    <div  class="example-header-image"></div>
+    <mat-card-title>User Registation</mat-card-title>
+  </mat-card-header>
 <form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
-  <div>
-
-    <mat-form-field class="example-full-width">
-      <mat-label>Favorite food</mat-label>
-      <input matInput placeholder="Ex. Pizza" value="Sushi">
-    </mat-form-field>
-  </div>
   <!-- Name -->
+  <div>
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Name" formControlName="name">
     <!-- error -->
     <mat-error *ngIf="errorHandling('name', 'required')">
-      You must provide a <strong>student name</strong>
+      You must provide a <strong>Name</strong>
     </mat-error>
   </mat-form-field>
+</div>
 
   <!-- Email -->
+  <div>
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Email" formControlName="email">
     <!-- error -->
     <mat-error *ngIf="errorHandling('email', 'required')">
-      You must provide a <strong>email</strong>
+      You must provide a Valid <strong>email</strong>
     </mat-error>
   </mat-form-field>
-
+</div>
+<!-- password -->
+  <div>
+  <mat-form-field class="example-full-width">
+    <!-- <span class="material-icons-two-tone">
+      https
+      </span> -->
+    <input matInput placeholder="Password" formControlName="password">
+    <!-- error -->
+    <mat-error *ngIf="errorHandling('password', 'required')">
+      You must provide a <strong>Password</strong>
+    </mat-error>
+  </mat-form-field>
+</div><br>
   <!-- Gender -->
   <div class="misc-bottom-padding">
-    <mat-label>Gender:</mat-label>
+    <mat-label style="padding-right: 20px;">Gender:</mat-label>
     <mat-radio-group aria-label="Select an option" formControlName="gender">
       <mat-radio-button value="Male">Male</mat-radio-button>
-      <mat-radio-button value="Female">Female</mat-radio-button>
+      <mat-radio-button style="padding-left: 20px;" value="Female">Female</mat-radio-button>
     </mat-radio-group>
-  </div>
+      <!-- error -->
+      <!-- <mat-error *ngIf="errorHandling('gender', 'required')">
+        You must provide a <strong>Gender</strong>
+      </mat-error> -->
+  </div><br>
 
 
 
@@ -42,3 +60,4 @@
   </div>
 </form>
 </mat-card>
+</div>

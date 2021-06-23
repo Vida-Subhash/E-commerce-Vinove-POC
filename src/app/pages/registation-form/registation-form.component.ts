@@ -1,5 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ToastrService } from 'ngx-toastr';
+import { user } from 'src/app/modal/user,modal';
+import { AuthService } from 'src/app/service/auth-service/auth.service';
 
 
 @Component({
@@ -9,20 +12,26 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 })
 export class RegistationFormComponent implements OnInit {
   myForm!: FormGroup;
-  constructor(public fb: FormBuilder) {}
+  userModal: user = new user();
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private toastr: ToastrService) {}
 
   ngOnInit(): void {
-    this.reactiveForm()
+    this.reactiveForm();
+    this.authService.getUser().subscribe( res=> {
+      console.log(res);
+    })
   }
 
   /* Reactive form */
   reactiveForm() {
     this.myForm = this.fb.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      gender: ['Male'],
-      dob: ['', [Validators.required]],
-      grade: [''],
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      gender: ['Male', [Validators.required]],
+     password: ['', [Validators.required, Validators.minLength(5)]]
     })
   }
 
@@ -32,8 +41,16 @@ export class RegistationFormComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.myForm.value)
-  }
+    this.userModal.name = this.myForm.value.name;
+    this.userModal.email = this.myForm.value.email;
+    this.userModal.password = this.myForm.value.password;
+    this.userModal.gender = this.myForm.value.gender;
+    this.authService.postUser(this.userModal).subscribe( res => {
+      console.log(res);
+      this.toastr.success("User registered Sucessfully.")
+      this.myForm.reset();
+    });
+}
 
 
 }

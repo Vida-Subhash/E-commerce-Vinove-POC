@@ -1,15 +1,39 @@
 {
-  "users":[
+  "users": [
     {
-
+      "name": "jhbb hmn ",
+      "email": "ssfsf@dfddfd",
+      "password": "fdfdfd",
+      "gender": "Male",
+      "id": 1
+    },
+    {
+      "name": "fgfdggf",
+      "email": "gfdgfdgfd@ghghgh",
+      "password": "hghghghg",
+      "gender": "Male",
+      "id": 2
+    },
+    {
+      "name": "jhbb hmn ",
+      "email": "dfdfd@fdfdf",
+      "password": "fdsfdsfds",
+      "gender": null,
+      "id": 3
+    },
+    {
+      "name": "fdsfsdf",
+      "email": "fdfdsfsd@fgfdgfd",
+      "password": "gfdgfdgfdg",
+      "gender": "Female",
+      "id": 4
     }
   ],
-  "categories":
-    [
-      "electronics",
-      "jewelery",
-      "men clothing",
-      "women clothing"
+  "categories": [
+    "electronics",
+    "jewelery",
+    "men clothing",
+    "women clothing"
   ],
   "products": [
     {

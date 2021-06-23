@@ -15,7 +15,12 @@ export class AuthService {
       return res;
     }));
   }
-
+getUser() {
+  return this.http.get<any>("http://localhost:3000/users")
+  .pipe(map((res: any ) => {
+    return res;
+  }));
+}
   // User Auth
   signInUser(email: string, password: string) {
     return this.http.get<any>("http://localhost:3000/users",)

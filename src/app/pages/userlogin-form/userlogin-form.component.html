@@ -1,1 +1,34 @@
-<p>userlogin-form works!</p>
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <div  class="example-header-image"></div>
+      <mat-card-title>User Registation</mat-card-title>
+    </mat-card-header>
+  <form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
+    <!-- Email -->
+    <div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" type="email" formControlName="email">
+      <!-- error -->
+      <mat-error *ngIf="errorHandling('email', 'required')">
+        You must provide a Valid <strong>Email</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <!-- password -->
+    <div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" type="password" formControlName="password">
+      <!-- error -->
+      <mat-error *ngIf="errorHandling('password', 'required')">
+        You must provide a <strong>Password</strong>
+      </mat-error>
+    </mat-form-field>
+  </div><br>
+    <!-- Submit -->
+  <div class="button-wrapper">
+      <button mat-flat-button color="primary">Submit</button>
+    </div>
+  </form>
+  </mat-card>
+  </div>
