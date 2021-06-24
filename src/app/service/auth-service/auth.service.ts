@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
     public isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+    public cartCount: BehaviorSubject<number> =  new BehaviorSubject<number>(0);
     serverUrl:string = "http://localhost:8000/sendmail";
   constructor(private http: HttpClient) { }
   // User data is submitted
@@ -62,5 +63,9 @@ getUser() {
     .pipe(map( (res:any) => {
       return res;
     }));
+ }
+
+ updateCartCount(count: number) {
+   this.cartCount.next(count);
  }
 }

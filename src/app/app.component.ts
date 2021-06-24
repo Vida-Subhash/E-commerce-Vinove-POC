@@ -8,7 +8,14 @@ import { AuthService } from './service/auth-service/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(  private toastr: ToastrService, private productService: AuthService) {}
+
+  public values: number | undefined;
+  constructor(  private toastr: ToastrService, private productService: AuthService) {
+    this.productService.cartCount.subscribe( res => {
+      this.values =res;
+      console.log(res);
+    })
+  }
   title = 'e-commerce-app';
 
 }
