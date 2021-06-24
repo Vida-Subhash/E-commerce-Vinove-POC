@@ -1,4 +1,73 @@
+// mat-card {
+//   height: 400px;
+//   width: 15rem;
+// }
+
+// .mat-card-image {
+//     width: 200px;
+//     height: 200px;
+//     object-fit: contain;
+//     // margin: 0 -16px 16px -16px;
+// }
+.main {
+  height: 86vh;
+}
+.filter {
+  display: grid;
+  grid-template-columns: 200px 1fr 400px;
+  align-items: center;
+  height: 8vh;
+}
+.container_1 {
+  height: 78vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow-x: auto;
+  // align-items: stretch;
+  // padding-top: 5px;
+  padding: 20px;
+  // margin-bottom: 20px;
+  // max-width: 1024px;
+  // justify-items: flex-start;
+  flex: 0 1 auto;
+  // padding-bottom: 30px;
+// display: grid;
+// padding: 10px;
+// grid-gap: 10px;
+// grid-template-columns: 320px 320px 320px 320px;
+// grid-template-rows: auto;
+  // width: auto;
+  // max-width: 700px;
+  // justify-content: space-evenly;
+}
+
 mat-card {
-  height: 400px;
-  width: 15rem;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 320px;
+  // margin: 15px;
+  height: 460px;
+  text-align: center;
+
+}
+img {
+  // margin: 5px;
+  width: 200px;
+  height: 200px;
+  padding-bottom: 20px;
+}
+mat-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+// .list_chip {
+//   overflow-x: auto;
+// }
+mat-chip-selected {
+  background-color: rgb(240, 154, 25) !important;
+  color: rgb(175, 13, 13);
+}
+.mat-form-field-infix {
+  width: 200px;
 }

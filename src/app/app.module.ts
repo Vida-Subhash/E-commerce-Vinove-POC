@@ -13,11 +13,11 @@ import { RegistationFormComponent } from './pages/registation-form/registation-f
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './service/auth-service/auth.service';
 import { UserloginFormComponent } from './pages/userlogin-form/userlogin-form.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductComponent } from './pages/product/product.component';
 import { CheckOutComponent } from './pages/check-out/check-out.component';
 import { AuthGaurdService } from './service/auth-gaurd/auth-gaurd.service';
 import { IntercepterService } from './service/intercepter/intercepter.service';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -26,9 +26,9 @@ import { IntercepterService } from './service/intercepter/intercepter.service';
     FooterComponent,
     RegistationFormComponent,
     UserloginFormComponent,
-    HomePageComponent,
     ProductComponent,
-    CheckOutComponent
+    CheckOutComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,

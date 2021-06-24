@@ -38,7 +38,7 @@ async function sendMail(user, callback) {
     secure: false,
     requireTLS: true, // true for 465, false for other ports
     auth: {
-      user: "testu9810@mail.com",
+      user: "testu9810@gmail.com",
       pass: "User@1234"
     }
   });
@@ -46,9 +46,10 @@ async function sendMail(user, callback) {
   let mailOptions = {
     from: '<testu9810@mail.com>', // sender address
     to: user.email, // list of receivers
-    subject: "Wellcome to Fun Of Heuristic 👻", // Subject line
+    subject: "Welcome to E-commerce 👻", // Subject line
     html: `<h1>Hi ${user.name}</h1><br>
-    <h4>Thanks for joining us</h4>`
+    <h4>Thanks for joining us</h4>
+    <h3> `
   };
 
   // send mail with defined transport object

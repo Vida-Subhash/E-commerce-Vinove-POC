@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CheckOutComponent } from './pages/check-out/check-out.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductComponent } from './pages/product/product.component';
 import { RegistationFormComponent } from './pages/registation-form/registation-form.component';
 import { UserloginFormComponent } from './pages/userlogin-form/userlogin-form.component';
@@ -20,11 +19,6 @@ const routes: Routes = [
   {
     path: 'signin',
     component: UserloginFormComponent,
-    // canActivate: [AuthGaurdService]
-  },
-  {
-    path: 'home',
-    component: HomePageComponent,
     // canActivate: [AuthGaurdService]
   },
   {

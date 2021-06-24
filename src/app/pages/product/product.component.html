@@ -1,15 +1,83 @@
-<div class="container">
-  <mat-card  class="example-card">
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
+ <div class="main">
+   <div class="filter">
+     <div style="text-align: center; font-size: large;">
+       <p> Filter   by categories: </p>
+     </div>
+     <div class="list_chip">
       <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
+        <mat-chip-list multiple id="chipList" [selectable]="true" >
+          <mat-chip *ngFor="let chip of catgories" value="{{chip}}" [selected]="chip" (click)="chip;
+          changeSelected('s', chip)" >
+            {{chip}}
+        </mat-chip>
+        </mat-chip-list>
+        <!-- <mat-chip-list  aria-label="Fruit selection">
+          <mat-chip color="accent"  *ngFor="let cata of catgories"  [selectable]="selectable">
+            {{cata}}
+          </mat-chip>
+        </mat-chip-list> -->
       </p>
-    </mat-card-content>
-    <mat-card-actions style="text-align: center;">
-      <button mat-raised-button color="accent">Add to Cart</button>
-     </mat-card-actions>
-  </mat-card>
+    </div>
+    <div style=" font-size: large;">
+      <span> Filter by price: </span>
+    <mat-form-field >
+  <mat-select style="text-align: center;">
+    <mat-option>-- None --</mat-option>
+    <mat-option value="option">Low to High</mat-option>
+    <mat-option value="option">High to Low</mat-option>
+  </mat-select>
+</mat-form-field>
+    </div>
+   </div>
+   <div class="container_1">
+    <div class="product" *ngFor="let item of product">
+    <mat-card  class="example-card">
+        <img   src="{{item.image}}" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p style="text-align: justify;"> <strong> {{item.title}}  </strong></p>
+        <p style="text-align: justify;"> <strong>Description :-</strong> {{item.description | truncate}} </p>
+        <p style="text-align: justify;"> <strong>Price : -</strong> {{item.price}} </p>
+        <p style="text-align: justify;"> <strong>Category</strong> {{item.category}} </p>
+      </mat-card-content>
+      <mat-card-actions style="text-align: center;">
+        <button style="width: 200px;" (click)="addToCard(item.id)" mat-raised-button color="accent">Add to Cart</button>
+       </mat-card-actions>
+    </mat-card><br><br>
+  </div>
+  </div>
+ </div>
+
+
+
+<!-- <div class="container">
+  <div class="card">
+    <img src="{{product.image}}" alt="Avatar" style="width:100%">
+    <div class="containers" >
+     <p class="description" >{{product.description}}</p>
+      <p class="price" >{{product.price}}</p>
+    </div>
+  </div>
+  <div class="card">
+  <img src="{{product.image}}" alt="Avatar" style="width:100%">
+  <div class="containers" >
+   <p class="description" >{{product.description}}</p>
+    <p class="price" >{{product.price}}</p>
+  </div>
 </div>
+  <div class="card">
+  <img src="{{product.image}}" alt="Avatar" style="width:100%">
+  <div class="containers" >
+   <p class="description" >{{product.description}}</p>
+    <p class="price" >{{product.price}}</p>
+  </div>
+</div>
+  <div class="card">
+  <img src="{{product.image}}" alt="Avatar" style="width:100%">
+  <div class="containers" >
+   <p class="description" >{{product.description}}</p>
+    <p class="price" >{{product.price}}</p>
+  </div>
+</div>
+
+</div> -->
+

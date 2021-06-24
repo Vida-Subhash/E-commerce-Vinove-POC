@@ -34,7 +34,16 @@ export class UserloginFormComponent implements OnInit {
   }
   submitForm() {
       console.log(this.myForm.value);
-      this.router.navigateByUrl('home');
-      localStorage.setItem('tocken', 'loggedIn');
+
+        this.authService.authLogin(this.myForm.value.email, this.myForm.value.password).subscribe(
+          res => {
+            this.toastr.success("Login Success.");
+            console.log("user found", res);
+            this.router.navigateByUrl('product');
+          }
+        )
+        localStorage.setItem('tocken', 'loggedIn');
+
+
   }
 }

@@ -10,14 +10,5 @@ import { AuthService } from './service/auth-service/auth.service';
 export class AppComponent {
   constructor(  private toastr: ToastrService, private productService: AuthService) {}
   title = 'e-commerce-app';
-  click() {
-      // this.LoggedIn = true;
-      this.toastr.success('Success');
-      this.productService.getAllProduct();
-    //   this.http.get<any>("http://localhost:3000/products")
-    //   .pipe(map((res:any ) => {
-    //     console.log(res);
-    //     return res;
-    //   }));
-    }
+
 }

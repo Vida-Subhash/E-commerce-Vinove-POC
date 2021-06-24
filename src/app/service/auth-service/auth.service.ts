@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -24,25 +24,43 @@ getUser() {
   }));
 }
   // User Auth
-  signInUser(email: string, password: string) {
-    return this.http.get<any>("http://localhost:3000/users",)
+  authLogin(email: string, password: string): Observable<any> {
+
+    return this.http.get("http://localhost:3000" + '/users?email=' + email + '&password=' + password)
     .pipe(map((res:any ) => {
       return res;
-    }));
+    }
+    ));
+  }
+    // Send Verification Email
+  sendVerificationEmail( data: any) {
+    return this.http.post(this.serverUrl, data);
   }
 
+// Product API
   getAllProduct() {
-    this.isLoading.next(true);
       return this.http.get<any>('http://localhost:3000/products')
       .pipe(map((res:any ) => {
         // console.log(res);
         return res;
-      })
-      );
-
-  }
-  // Send Verification Email
-  sendVerificationEmail( data: any) {
-    return this.http.post(this.serverUrl, data);
-  }
+      }));
+    }
+  getAllCategories() {
+    return  this.http.get<any>('http://localhost:3000/categories')
+    .pipe(map( (res:any) => {
+      return res;
+    }));
+ }
+  addToCart(data: any) {
+    return  this.http.post<any>('http://localhost:3000/cart', data)
+    .pipe(map( (res:any) => {
+      return res;
+    }));
+ }
+  getProductById(data: any) {
+    return  this.http.get<any>('http://localhost:3000/products/'+data)
+    .pipe(map( (res:any) => {
+      return res;
+    }));
+ }
 }

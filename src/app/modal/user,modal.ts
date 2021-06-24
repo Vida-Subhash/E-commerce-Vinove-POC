@@ -5,3 +5,12 @@ export class user {
   password!: string;
   gender!: string;
 }
+
+export class cart {
+  productId!: string;
+  title!: string;
+  description!: string;
+  price!: string;
+  category!: string;
+  image!:string;
+}
