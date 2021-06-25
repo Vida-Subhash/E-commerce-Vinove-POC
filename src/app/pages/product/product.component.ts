@@ -1,6 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { cart } from 'src/app/modal/user,modal';
+import { cart } from 'src/app/modal/user.modal';
 import { AuthService } from 'src/app/service/auth-service/auth.service';
 import { EventEmitter } from '@angular/core';
 
@@ -14,10 +14,10 @@ export class ProductComponent implements OnInit {
   product: any;
   selectable = true;
   cartModal: cart = new cart();
-   count:any= 0;
+   count:number= 0;
   @Output() public childevent = new EventEmitter();
   //
-  selectedChips: any[] = [];
+  selectedChips: string[] = [];
   constructor(private authService: AuthService,
     private toastr: ToastrService) { }
   ngOnInit(): void {
@@ -44,25 +44,25 @@ export class ProductComponent implements OnInit {
     console.log('this.selectedChips: ' + this.selectedChips);
   }
   addToCard(id: any) {
-        console.log(id);
-        this.authService.getProductById(id).subscribe( res=> {
-          console.log(res);
-          this.cartModal = res;
-          console.log(this.cartModal);
-        })
-        if(true) {
-        this.authService.addToCart(this.cartModal).subscribe( res => {
-          console.log(res);
-          this.count++;
-          console.log(this.count);
-          this.authService.updateCartCount(this.count);
-          this.toastr.info("Added to cart");
-          // this.childevent.emit(this.count);
-        })
+    console.log(id);
+    this.authService.getProductById(id).subscribe( res=> {
+      console.log(res);
+      this.cartModal = res;
+      console.log(this.cartModal);
+    })
+    if(true) {
+    this.authService.addToCart(this.cartModal).subscribe( res => {
+      console.log(res);
+      this.count++;
+      console.log(this.count);
+      this.authService.updateCartCount(this.count);
+      this.toastr.info("Added to cart");
+      // this.childevent.emit(this.count);
+    })
 
-      }
-      // else {
-      //   this.toastr.error("Server Error");
-      // }
   }
+  // else {
+  //   this.toastr.error("Server Error");
+  // }
+}
 }

@@ -24,12 +24,12 @@ const routes: Routes = [
   {
     path: 'product',
     component: ProductComponent,
-    // canActivate: [AuthGaurdService]
+    canActivate: [AuthGaurdService]
   },
   {
     path: 'checkout',
     component: CheckOutComponent,
-    // canActivate: [AuthGaurdService]
+    canActivate: [AuthGaurdService]
   },
   {
     path: 'logout',

@@ -5,7 +5,7 @@
      </div>
      <div class="list_chip">
       <p>
-        <mat-chip-list multiple id="chipList" [selectable]="true" >
+        <mat-chip-list  id="chipList" [selectable]="true" >
           <mat-chip *ngFor="let chip of catgories" value="{{chip}}" [selected]="chip" (click)="chip;
           changeSelected('s', chip)" >
             {{chip}}
@@ -30,7 +30,7 @@
     </div>
    </div>
    <div class="container_1">
-    <div class="product" *ngFor="let item of product">
+    <div class="product" *ngFor="let item of product ">
     <mat-card  class="example-card">
         <img   src="{{item.image}}" alt="Photo of a Shiba Inu">
       <mat-card-content>

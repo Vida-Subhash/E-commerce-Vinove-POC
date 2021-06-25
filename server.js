@@ -44,12 +44,13 @@ async function sendMail(user, callback) {
   });
 
   let mailOptions = {
-    from: '<testu9810@mail.com>', // sender address
+    from: ' <testu9810@mail.com>', // sender address
     to: user.email, // list of receivers
-    subject: "Welcome to E-commerce 👻", // Subject line
+    subject: "Welcome to E-commerce 👻 Please verify", // Subject line
     html: `<h1>Hi ${user.name}</h1><br>
+    <h3> <a href="http://localhost:4200/signin"> click here to verify</a> </h3>
     <h4>Thanks for joining us</h4>
-    <h3> `
+    `
   };
 
   // send mail with defined transport object
@@ -57,3 +58,4 @@ async function sendMail(user, callback) {
 
   callback(info);
 }
+

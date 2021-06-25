@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { user } from 'src/app/modal/user,modal';
+import { user } from 'src/app/modal/user.modal';
 import { AuthService } from 'src/app/service/auth-service/auth.service';
 
 
@@ -32,7 +32,7 @@ export class RegistationFormComponent implements OnInit {
     this.myForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      gender: ['Male', [Validators.required]],
+      gender: ['', [Validators.required]],
      password: ['', [Validators.required, Validators.minLength(5)]]
     })
   }
@@ -65,6 +65,8 @@ export class RegistationFormComponent implements OnInit {
     }
     )
 }
-
+registeredUser() {
+  this.router.navigateByUrl('signin');
+}
 
 }

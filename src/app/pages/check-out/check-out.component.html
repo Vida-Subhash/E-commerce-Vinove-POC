@@ -1,1 +1,49 @@
-<p>check-out works!</p>
+<!-- <mat-selection-list #shoes [multiple]="false">
+  <mat-list-option > daaa
+  </mat-list-option>
+</mat-selection-list> -->
+
+<!-- <p>{{data?.title}}</p> -->
+ <div class="container">
+<div class="row_1">
+  <div class="p-image label">Product Image</div>
+  <div class="p-image label">Name</div>
+  <div class="quntity label">Quntity</div>
+  <div class="p-image label" style="padding-left: 25px;">Price</div>
+</div>
+<div class="data-1">
+<div class="data" *ngFor= "let data of productData">
+  <div class="p-image">
+   <img class="img" src="{{data?.image}}" alt="" srcset="">  </div>
+
+  <div class="p-image">{{data?.title |truncate}} </div>
+  <div class="quntity">{{data?.quntity}}</div>
+  <div class="price">{{data?.price}}</div>
+  <div class="add-quntity" style="display: grid; grid-template-columns: 40px 40px 60px; ">
+         <div>
+            <mat-icon (click)="onIncrement()">add</mat-icon>
+          </div>
+          <div style="padding-bottom: 50px;">
+            <mat-form-field class="example-full-width" >
+              <input matInput   value="{{count}}">
+            </mat-form-field>
+          </div>
+          <div style="padding-left: 40px;">
+            <mat-icon  (click)="onDecrement()">remove</mat-icon>
+          </div>
+
+  </div>
+
+  <div style="text-align: center;">
+    <mat-icon color="warn" (click)="deleteItem(data.id)">delete</mat-icon>
+  </div>
+</div>
+</div>
+<div class="total" style="text-align: end;">
+    <Span style="padding-right: 100px;">Grand Total : <strong>50000</strong></Span>
+    <span style="padding-right: 50px;">
+
+      <button style="width: 15rem;"  mat-flat-button color="primary">Check out</button>
+    </span>
+</div>
+</div>

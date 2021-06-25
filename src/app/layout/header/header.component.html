@@ -1,21 +1,11 @@
 <p>
   <mat-toolbar color="primary">
     <span>E-commerce App</span>
-    <!-- <mat-form-field>
-      <mat-icon matPrefix>search</mat-icon>
-      <input matInput type="search" placeholder="search here" class="search-input1">
-  </mat-form-field> -->
     <span class="example-spacer"></span>
-
-    <!-- <mat-form-field floatLabel="never"> -->
-      <!-- <input type="text" matInput name="search" class="round" /> -->
-      <!-- <input matInput class="round" placeholder="Search"> -->
-    <!-- </mat-form-field> -->
     <div *ngIf="isLoggedIn">
-    <button style="padding-right: 40px;" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon   matBadge="{{parentData}}" MatBadgeSize="large" matBadgeColor="warn">shopping_cart</mat-icon>
+    <button style="padding-right: 40px;" mat-icon-button class="example-icon favorite-icon" (click)="cart()" aria-label="Example icon-button with heart icon">
+      <mat-icon [matBadgeHidden] = "parentData == 0"  matBadge="{{parentData}}" MatBadgeSize="large" matBadgeColor="warn">shopping_cart</mat-icon>
     </button>
-
     <button mat-icon-button class="example-icon" (click)="logOut()" aria-label="Example icon-button with share icon">
        <mat-icon > logout</mat-icon>
     </button>

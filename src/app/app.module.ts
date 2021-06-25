@@ -18,6 +18,7 @@ import { CheckOutComponent } from './pages/check-out/check-out.component';
 import { AuthGaurdService } from './service/auth-gaurd/auth-gaurd.service';
 import { IntercepterService } from './service/intercepter/intercepter.service';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { FilterbyPipe } from './filterby.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     UserloginFormComponent,
     ProductComponent,
     CheckOutComponent,
-    TruncatePipe
+    TruncatePipe,
+    FilterbyPipe
   ],
   imports: [
     BrowserModule,

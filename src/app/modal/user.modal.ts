@@ -10,7 +10,8 @@ export class cart {
   productId!: string;
   title!: string;
   description!: string;
-  price!: string;
+  price!: number;
   category!: string;
   image!:string;
+  quntity: number = 1;
 }
