@@ -10,15 +10,17 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { RegistationFormComponent } from './pages/registation-form/registation-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './service/auth-service/auth.service';
 import { UserloginFormComponent } from './pages/userlogin-form/userlogin-form.component';
 import { ProductComponent } from './pages/product/product.component';
 import { CheckOutComponent } from './pages/check-out/check-out.component';
 import { AuthGaurdService } from './service/auth-gaurd/auth-gaurd.service';
 import { IntercepterService } from './service/intercepter/intercepter.service';
-import { TruncatePipe } from './pipes/truncate.pipe';
-import { FilterbyPipe } from './filterby.pipe';
+import { TruncatePipe } from './pipes/char-limit/truncate.pipe';
+import { SearchProductPipe } from './pipes/search-product/search-product.pipe';
+import { FilterbycategoriesPipe } from './pipes/filter-category/filterbycategories.pipe';
+import { ProductService } from './service/product/product.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { FilterbyPipe } from './filterby.pipe';
     ProductComponent,
     CheckOutComponent,
     TruncatePipe,
-    FilterbyPipe
+    SearchProductPipe,
+    FilterbycategoriesPipe,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { FilterbyPipe } from './filterby.pipe';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     ToastrModule.forRoot(
       {
        timeOut: 3000,
@@ -49,11 +53,12 @@ import { FilterbyPipe } from './filterby.pipe';
     HttpClientModule,
      AuthService,
      AuthGaurdService,
+     ProductService,
     {
        provide: HTTP_INTERCEPTORS,
        useClass: IntercepterService,
         multi: true
-    }
+    },
       ],
   bootstrap: [AppComponent]
 })

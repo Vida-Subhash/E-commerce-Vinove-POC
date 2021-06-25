@@ -3,4 +3,23 @@
   // padding-left: 200px;
 }
 
-
+.header{
+  align-items: center;
+  display: grid;
+  grid-template-columns: 200px 500px 300px;
+  height: 7vh;
+}
+.search-bar {
+  text-align: center;
+}
+.search-input{
+  border: solid 1px white;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 350px;
+  height: 25px;
+}
+.buttons{
+  text-align: end;
+}

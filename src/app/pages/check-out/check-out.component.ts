@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { cart } from '../../modal/user.modal';
-
-import { AuthService } from 'src/app/service/auth-service/auth.service';
+import { ProductService } from 'src/app/service/product/product.service';
 
 @Component({
   selector: 'app-check-out',
@@ -22,7 +21,7 @@ export class CheckOutComponent implements OnInit {
   cartModal: cart = new cart();
   productData!: any;
   count: number= 1;
-  constructor(private productService: AuthService) {
+  constructor(private productService: ProductService) {
 
   }
   // displayedColumns = ['position', 'name', 'weight', 'symbol'];

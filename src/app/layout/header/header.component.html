@@ -1,4 +1,4 @@
-<p>
+<!-- <p>
   <mat-toolbar color="primary">
     <span>E-commerce App</span>
     <span class="example-spacer"></span>
@@ -11,5 +11,23 @@
     </button>
   </div>
   </mat-toolbar>
-</p>
+</p> -->
 
+<mat-toolbar color="primary">
+<div class="header">
+  <div class="title">
+    <span>E-commerce App</span>
+  </div>
+  <div *ngIf="isLoggedIn" class="search-bar">
+        <input [(ngModel)]="search" class="search-input"  matInput placeholder="search product" >
+  </div>
+  <div *ngIf="isLoggedIn" class="buttons">
+    <button style="padding-right: 40px;" mat-icon-button class="example-icon favorite-icon" (click)="cart()" aria-label="Example icon-button with heart icon">
+      <mat-icon [matBadgeHidden] = "parentData == 0"  matBadge="{{parentData}}" MatBadgeSize="large" matBadgeColor="warn">shopping_cart</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" (click)="logOut()" aria-label="Example icon-button with share icon">
+       <mat-icon > logout</mat-icon>
+    </button>
+  </div>
+</div>
+</mat-toolbar>

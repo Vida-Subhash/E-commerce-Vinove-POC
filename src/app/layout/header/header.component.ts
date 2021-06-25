@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/service/auth-service/auth.service';
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn!: boolean;
+  search: string = '';
   @Input() public parentData: number | undefined;
   constructor(
     private router: Router,
