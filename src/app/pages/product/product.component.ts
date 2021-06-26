@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, Output } from '@angular/core';
+import {  Component, OnInit, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { cart } from 'src/app/modal/user.modal';
 import { EventEmitter } from '@angular/core';
@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/service/product/product.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit, AfterViewInit {
+export class ProductComponent implements OnInit{
   catgories: any;
   product: any[] =[];
   selectable = true;
@@ -18,16 +18,14 @@ export class ProductComponent implements OnInit, AfterViewInit {
    fliter: any[] = [];
    public color = '';
    data:any [] =[];
+   string:string = '';
   @Output() public childevent = new EventEmitter();
   //
   selectedChips: string[] = [];
   constructor(
     private productService: ProductService,
     private toastr: ToastrService) { }
-  ngAfterViewInit(): void {
-    this.product = this.fliter;
-    console.log(this.product);
-  }
+
 
   ngOnInit(): void {
   this.productService.getAllProduct().subscribe( res => {
@@ -41,7 +39,12 @@ export class ProductComponent implements OnInit, AfterViewInit {
     this.catgories = res;
     console.log(this.catgories);
   })
-    // this.sortProductByPrice();
+
+  this.productService.searchString.subscribe( res => {
+    this.string = res;
+    console.log(this.string);
+  })
+
   }
 
   changeSelected(parameter: string, query: string) {
@@ -80,17 +83,15 @@ export class ProductComponent implements OnInit, AfterViewInit {
 
 
 lowToHigh() {
-  this.data = this.product.sort(function (a, b) {
+   this.product.sort(function (a, b) {
     return  a.price - b.price;
   });
-  console.log(this.data);
 }
 
 highToLow() {
-  this.data = this.product.sort(function (a, b) {
+   this.product.sort(function (a, b) {
     return  b.price - a.price;
   });
-  console.log(this.data);
 }
 
 getCategory(selectedChip : string) {

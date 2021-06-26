@@ -9,6 +9,8 @@ import { map } from 'rxjs/operators';
 export class ProductService {
   public cartCount: BehaviorSubject<number> =  new BehaviorSubject<number>(0);
   public isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public searchString: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  serverUrl:string = "http://localhost:8000/sendcartdata";
   constructor(private http: HttpClient) { }
 
   // Product API
@@ -59,5 +61,10 @@ return this.http.delete<any>("http://localhost:3000/cart/"+id)
 .pipe(map((res:any ) => {
   return res;
 }));
+}
+
+// send cart data to registered mail
+sendCartToEmail( data: any) {
+  return this.http.post(this.serverUrl, data);
 }
 }

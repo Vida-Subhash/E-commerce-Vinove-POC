@@ -6,8 +6,8 @@
      <div class="list_chip">
       <p>
         <!-- <button mat-button (click)="getCategory()">click</button> -->
-        <mat-chip-list  id="chipList" [selectable]="true" >
-          <mat-chip *ngFor="let chip of catgories" value="{{chip}}" (click)="getCategory(chip)"  [selected]="chip"  >
+        <mat-chip-list class=" my-chip" id="chipList" [selectable]="true" >
+          <mat-chip *ngFor="let chip of catgories" color="primary" (click)="getCategory(chip)"  [selected]="chip"  >
             {{chip}}
         </mat-chip>
         <!-- <mat-chip-list  id="chipList" [selectable]="true" >
