@@ -2,8 +2,12 @@
 @import '~ngx-toastr/toastr';
 html, body {
    height: 100vh;
+  //  width: auto;
   }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+
+
+  }
 
 .mat-toolbar {
   min-height: 50px !important;

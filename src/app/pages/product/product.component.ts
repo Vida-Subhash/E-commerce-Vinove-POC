@@ -16,6 +16,8 @@ export class ProductComponent implements OnInit, AfterViewInit {
   cartModal: cart = new cart();
    count:number= 0;
    fliter: any[] = [];
+   public color = '';
+   data:any [] =[];
   @Output() public childevent = new EventEmitter();
   //
   selectedChips: string[] = [];
@@ -31,6 +33,7 @@ export class ProductComponent implements OnInit, AfterViewInit {
   this.productService.getAllProduct().subscribe( res => {
     this.product = res;
     console.log(this.product);
+    this.color = "blue"
   });
 
     // this.getCategory();
@@ -38,7 +41,7 @@ export class ProductComponent implements OnInit, AfterViewInit {
     this.catgories = res;
     console.log(this.catgories);
   })
-
+    // this.sortProductByPrice();
   }
 
   changeSelected(parameter: string, query: string) {
@@ -74,16 +77,31 @@ export class ProductComponent implements OnInit, AfterViewInit {
   //   this.toastr.error("Server Error");
   // }
 }
+
+
+lowToHigh() {
+  this.data = this.product.sort(function (a, b) {
+    return  a.price - b.price;
+  });
+  console.log(this.data);
+}
+
+highToLow() {
+  this.data = this.product.sort(function (a, b) {
+    return  b.price - a.price;
+  });
+  console.log(this.data);
+}
+
 getCategory(selectedChip : string) {
   console.log(selectedChip);
   this.product.forEach(element => {
-    // console.log(element.category);
     if(element.category === selectedChip) {
-      // console.log(element);
       this.fliter.push(element);
       console.log(this.fliter);
-    }
-  })
+    }});
 }
+
+
 }
 
