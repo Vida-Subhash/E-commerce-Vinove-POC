@@ -5,11 +5,16 @@
      </div>
      <div class="list_chip">
       <p>
+        <!-- <button mat-button (click)="getCategory()">click</button> -->
         <mat-chip-list  id="chipList" [selectable]="true" >
-          <mat-chip *ngFor="let chip of catgories" value="{{chip}}" [selected]="chip" (click)="chip;
-          changeSelected('s', chip)" >
+          <mat-chip *ngFor="let chip of catgories" value="{{chip}}" (click)="getCategory(chip)"  [selected]="chip"  >
             {{chip}}
         </mat-chip>
+        <!-- <mat-chip-list  id="chipList" [selectable]="true" >
+          <mat-chip *ngFor="let chip of catgories" value="{{chip}}" (click)="getCategory()" [selected]="chip" (click)="chip;
+          changeSelected('s', chip)" >
+            {{chip}}
+        </mat-chip> -->
         </mat-chip-list>
         <!-- <mat-chip-list  aria-label="Fruit selection">
           <mat-chip color="accent"  *ngFor="let cata of catgories"  [selectable]="selectable">
@@ -30,11 +35,11 @@
     </div>
    </div>
    <div class="container_1">
-    <div class="product" *ngFor="let item of product ">
+    <div class="product" *ngFor="let item of fliter ">
     <mat-card  class="example-card">
         <img   src="{{item.image}}" alt="Photo of a Shiba Inu">
       <mat-card-content>
-        <p style="text-align: justify;"> <strong> {{item.title}}  </strong></p>
+        <p style="text-align: justify;"> <strong> {{item.title |truncate}}  </strong></p>
         <p style="text-align: justify;"> <strong>Description :-</strong> {{item.description | truncate}} </p>
         <p style="text-align: justify;"> <strong>Price : -</strong> {{item.price}} </p>
         <p style="text-align: justify;"> <strong>Category</strong> {{item.category}} </p>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from './service/auth-service/auth.service';
+import { ProductService } from './service/product/product.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { AuthService } from './service/auth-service/auth.service';
 export class AppComponent {
 
   public values: number | undefined;
-  constructor(  private toastr: ToastrService, private productService: AuthService) {
+  constructor(  private toastr: ToastrService, private productService: ProductService) {
     this.productService.cartCount.subscribe( res => {
       this.values =res;
       console.log(res);

@@ -28,9 +28,9 @@ getUser() {
   // User Auth
   authLogin(email: string, password: string): Observable<any> {
 
-    this.isLoggedIn.next(true);
     return this.http.get("http://localhost:3000" + '/users?email=' + email + '&password=' + password)
     .pipe(map((res:any ) => {
+      this.isLoggedIn.next(true);
       return res;
     }
     ));
