@@ -23,7 +23,6 @@ export class IntercepterService implements HttpInterceptor {
           this.authService.isLoading.next(false);
           this.productService.isLoading.next(false);
         }
-      )
-    )
+      ));
   }
 }

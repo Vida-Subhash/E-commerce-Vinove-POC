@@ -20,7 +20,7 @@
   </div>
   <div *ngIf="isLoggedIn" class="search-bar">
         <input [(ngModel)]="search" class="search-input"  matInput placeholder="search product" >
-        <span>{{search}}</span>
+
   </div>
   <div *ngIf="isLoggedIn" class="buttons">
     <button style="padding-right: 40px;" mat-icon-button class="example-icon favorite-icon" (click)="cart()" aria-label="Example icon-button with heart icon">

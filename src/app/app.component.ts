@@ -11,7 +11,7 @@ import { ProductService } from './service/product/product.service';
 export class AppComponent {
 
   public values: number | undefined;
-  constructor(  private toastr: ToastrService, private productService: ProductService) {
+  constructor( private productService: ProductService) {
     this.productService.cartCount.subscribe( res => {
       this.values =res;
       console.log(res);

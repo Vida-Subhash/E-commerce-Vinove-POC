@@ -26,9 +26,9 @@ getUser() {
   }));
 }
   // User Auth
-  authLogin(email: string, password: string): Observable<any> {
+  authLogin(user: any): Observable<any> {
 
-    return this.http.get("http://localhost:3000" + '/users?email=' + email + '&password=' + password)
+    return this.http.get("http://localhost:3000/users", user)
     .pipe(map((res:any ) => {
       this.isLoggedIn.next(true);
       return res;

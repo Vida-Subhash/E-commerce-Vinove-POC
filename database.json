@@ -8,74 +8,11 @@
       "id": 5
     },
     {
-      "name": "Subhash Ramshetty",
-      "email": "subhash.ramshetti9768@gmail.com",
-      "password": "subhash",
+      "name": "Raju Sharma",
+      "email": "raju123@gmail.com",
+      "password": "raju123",
       "gender": "Male",
       "id": 6
-    },
-    {
-      "name": "dfdf fddfdf",
-      "email": "subhash.ramshetti9768@gmail.com",
-      "password": "thane",
-      "gender": "Male",
-      "id": 7
-    },
-    {
-      "name": "jhbb hmn ",
-      "email": "subhash.ramshetti9768@gmail.com",
-      "password": "thane",
-      "gender": "Male",
-      "id": 8
-    },
-    {
-      "name": "Subhash Ramshetty",
-      "email": "subhash.ramshetti9768@gmail.com",
-      "password": "thane",
-      "gender": "Male",
-      "id": 9
-    },
-    {
-      "name": "jhbb hmn ",
-      "email": "subhash.ramshetti9768@gmail.com",
-      "password": "thane",
-      "gender": "Male",
-      "id": 10
-    },
-    {
-      "name": "subhash",
-      "email": "subhash.ramshetti9768@gmail.com",
-      "password": "8032145789",
-      "gender": "Male",
-      "id": 11
-    },
-    {
-      "name": "Subhash Ramshetty",
-      "email": "subhash.ramshetti9768@gmail.com",
-      "password": "dfdfdfd",
-      "gender": "Male",
-      "id": 12
-    },
-    {
-      "name": "fdsfsdf",
-      "email": "subhash.ramshetti9768@gmail.com",
-      "password": "fsdfdsfds",
-      "gender": "Male",
-      "id": 13
-    },
-    {
-      "name": "Subhash Ramshetty",
-      "email": "subhash.ramshetti9768@gmail.com",
-      "password": "fdfdfdf",
-      "gender": "Male",
-      "id": 14
-    },
-    {
-      "name": "suresh",
-      "email": "sureshshetty3773@gmail.com",
-      "password": "suresh",
-      "gender": "Male",
-      "id": 15
     }
   ],
   "categories": [
@@ -277,13 +214,13 @@
       "quntity": 2
     },
     {
-      "id": 4,
-      "title": "Mens Casual Slim Fit",
-      "price": 15.99,
-      "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
+      "id": 3,
+      "title": "Mens Cotton Jacket",
+      "price": 55.99,
+      "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
       "category": "men's clothing",
-      "image": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
-      "quntity": 4
+      "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+      "quntity": 1
     }
   ]
 }

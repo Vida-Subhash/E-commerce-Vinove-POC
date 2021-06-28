@@ -1,10 +1,7 @@
 .container{
 height: 87vh;
 }
-// .row-1{
-//   display: grid;
 
-// }
 .row_1 {
   display: grid;
   grid-template-columns: 150px 200px    100px 1fr;
@@ -54,5 +51,13 @@ mat-icon  {
   cursor: pointer;
 }
 
+.no-product {
+  height: 87vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
+.back-btn {
+  width: 220px;
+}

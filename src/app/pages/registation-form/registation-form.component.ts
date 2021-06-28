@@ -1,3 +1,4 @@
+import { validateHorizontalPosition } from '@angular/cdk/overlay';
 import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
@@ -30,7 +31,7 @@ export class RegistationFormComponent implements OnInit {
   /* Reactive form */
   reactiveForm() {
     this.myForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
+      name: ['', [Validators.required, Validators.minLength(3),]],
       email: ['', [Validators.required, Validators.email]],
       gender: ['', [Validators.required]],
      password: ['', [Validators.required, Validators.minLength(5)]]

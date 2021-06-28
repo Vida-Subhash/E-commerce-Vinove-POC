@@ -16,7 +16,7 @@ export class ProductService {
   // Product API
   getAllProduct() {
     return this.http.get<any>('http://localhost:3000/products')
-    .pipe(map((res:any ) => {
+    .pipe(map((res ) => {
       // console.log(res);
       return res;
     }));
@@ -62,9 +62,18 @@ return this.http.delete<any>("http://localhost:3000/cart/"+id)
   return res;
 }));
 }
-
+removeCartData(data: any) {
+  return this.http.delete<any>("http://localhost:3000/cart/"+data)
+.pipe(map((res:any ) => {
+  return res;
+}));
+}
 // send cart data to registered mail
 sendCartToEmail( data: any) {
   return this.http.post(this.serverUrl, data);
+}
+
+serach() {
+  this.searchString.asObservable();
 }
 }

@@ -1,5 +1,5 @@
 
- <div class="container">
+ <div *ngIf="cartCound > 0" class="container">
 <div class="row_1">
   <div class="p-image label">Product Image</div>
   <div class="p-image label">Name</div>
@@ -13,20 +13,22 @@
 
   <div class="p-image">{{data?.title |truncate}} </div>
   <div class="quntity">{{data?.quntity}}</div>
-  <div class="price">{{data?.price}}</div>
+  <div class="price">{{data.price}}</div>
   <div class="add-quntity" style="display: grid; grid-template-columns: 40px 40px 60px; ">
          <div>
             <mat-icon (click)="onIncrement()">add</mat-icon>
           </div>
           <div style="padding-bottom: 50px;">
             <mat-form-field class="example-full-width" >
-              <input matInput   value="{{count}}">
+              <input matInput    value="{{count}}">
             </mat-form-field>
           </div>
           <div style="padding-left: 40px;">
             <mat-icon  (click)="onDecrement()">remove</mat-icon>
           </div>
-
+          <div>
+            {{data.price*count}}
+          </div>
   </div>
 
   <div style="text-align: center;">
@@ -43,3 +45,13 @@
     </span>
 </div>
 </div>
+<div *ngIf="cartCound == 0 " class="no-product">
+  <div>
+        <h1>No Product is Added</h1><br>
+        <button class="back-btn"  mat-raised-button (click)="backToProductPage()" color="primary">
+          <mat-icon>keyboard_backspace</mat-icon>
+          Back to product page
+        </button>
+      </div>
+</div>
+

@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/service/auth-service/auth.service';
 })
 export class UserloginFormComponent implements OnInit {
   myForm!: FormGroup;
+  userDetaisl: any[]=[];
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -20,6 +21,9 @@ export class UserloginFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.reactiveForm();
+    this.authService.getUser().subscribe( res => {
+      this.userDetaisl = res;
+    })
   }
 
   reactiveForm() {
@@ -34,16 +38,18 @@ export class UserloginFormComponent implements OnInit {
   }
   submitForm() {
       console.log(this.myForm.value);
-
-        this.authService.authLogin(this.myForm.value.email, this.myForm.value.password).subscribe(
-          res => {
+        this.userDetaisl.filter(ele => {
+          if(ele.email === this.myForm.value.email && ele.password === this.myForm.value.password) {
             this.toastr.success("Login Success.");
-            console.log("user found", res);
+            console.log("user found", ele);
+            this.authService.isLoggedIn.next(true);
             this.router.navigateByUrl('product');
+          } else {
+            this.toastr.error("Invalid Details");
           }
-        )
-        localStorage.setItem('tocken', 'loggedIn');
-
-
+        });
   }
+
+
+
 }

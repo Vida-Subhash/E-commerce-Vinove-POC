@@ -17,6 +17,7 @@
   <div>
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Name" formControlName="name">
+
     <!-- error -->
     <mat-error *ngIf="errorHandling('name', 'required')">
       You must provide a <strong>Name</strong>
@@ -41,6 +42,8 @@
       https
       </span> -->
     <input matInput type="password" placeholder="Password" formControlName="password">
+    <mat-icon  matSuffix>  visibility_off</mat-icon>
+    <!-- <mat-icon matSuffix>  visibility</mat-icon> -->
     <!-- error -->
     <mat-error *ngIf="errorHandling('password', 'required')">
       You must provide a <strong>Password</strong>

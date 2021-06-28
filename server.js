@@ -3,7 +3,6 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
-// const details = require("./details.json");
 
 const app = express();
 app.use(cors({ origin: "*" }));
@@ -54,7 +53,7 @@ async function sendCartData(data, callback) {
   // let productdata = req.body;
   var d = data.forEach(ele => {
       console.log(ele.title);
-    })
+    });
     console.log("D is printed",d);
   let cardtData = {
     from: ' <testu9810@mail.com>', // sender address
@@ -71,17 +70,12 @@ async function sendCartData(data, callback) {
           `
   };
 
-
-
-  // let cart = await transporter.sendCartData(cardtData);
   let cart = await transporter.sendMail(cardtData);
   callback(cart);
 }
 
 async function sendVMail(user, callback) {
   console.log(user.email);
-
-
   let mailOptions = {
     from: ' <testu9810@mail.com>', // sender address
     to: user.email, // list of receivers
@@ -92,11 +86,8 @@ async function sendVMail(user, callback) {
     `
   };
 
-
   // send mail with defined transport object
   let info = await transporter.sendMail(mailOptions);
-
-
   callback(info);
 
 }
