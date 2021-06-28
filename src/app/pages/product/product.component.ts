@@ -16,8 +16,11 @@ export class ProductComponent implements OnInit{
   count:number= 0;
   fliter: any[] = [];
   string:string = '';
+  //
+  cartProduct: any[] = [];
   @Output() public childevent = new EventEmitter();
   search:any = '';
+  cartProducts!: any[];
   constructor(
     private productService: ProductService,
     private toastr: ToastrService) { }
@@ -43,6 +46,17 @@ export class ProductComponent implements OnInit{
 // Add selected product to cart
   addToCard(id: any) {
     console.log(id);
+    this.productService.getCartProduct().subscribe( res => {
+        this.cartProducts = res;
+        console.log(this.cartProducts);
+    });
+    // if(this.cartProducts) {
+    //       for(let i=0; i<this.cartProducts.length; i++ ) {
+    //         if(this.cartProducts[i].id == id) {
+    //           this.productService.updateQuntity(id).
+    //         }
+    //       }
+    // }
     this.productService.getProductById(id).subscribe( res=> {
       console.log(res);
       this.cartModal = res;
@@ -56,6 +70,7 @@ productCart() {
   this.productService.addToCart(this.cartModal).subscribe( res => {
     console.log(res);
     this.count++;
+    this.cartProduct = res;
     console.log(this.count);
     this.productService.updateCartCount(this.count);
     this.toastr.info("Added to cart");

@@ -55,15 +55,20 @@ return this.http.get<any>('http://localhost:3000/cart')
 updateCartCount(count: number) {
  this.cartCount.next(count);
 }
-
+updateQuntity(id: any) {
+  return this.http.put<any>("http://localhost:3000/cart/",id)
+.pipe(map((res:any ) => {
+  return res;
+}));
+}
 deleteProduct(id: number) {
 return this.http.delete<any>("http://localhost:3000/cart/"+id)
 .pipe(map((res:any ) => {
   return res;
 }));
 }
-removeCartData(data: any) {
-  return this.http.delete<any>("http://localhost:3000/cart/"+data)
+removeCartData(id: any) {
+  return this.http.delete<any>("http://localhost:3000/cart/"+id)
 .pipe(map((res:any ) => {
   return res;
 }));

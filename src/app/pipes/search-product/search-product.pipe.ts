@@ -1,16 +1,21 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { cart } from 'src/app/modal/user.modal';
 
 @Pipe({
-  name: 'searchProduct'
+  name: 'searchProduct',
+  // pure: false
 })
 export class SearchProductPipe implements PipeTransform {
 
-  transform(value: any, searchProduct: string): any {
-    // console.log(value);
+  transform(value: cart[], searchProduct: string): any {
+    console.log(value);
+    if(!value) {
+      return value;
+    }
     if(searchProduct == '') {
       return value;
     }
-    let productArray: any[] =[];
+    let productArray: cart[] =[];
     for(let i=0; i<=value.length; i++) {
       let product:string = value[i].title;
       console.log(product);

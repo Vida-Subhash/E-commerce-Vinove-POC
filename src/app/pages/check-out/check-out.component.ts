@@ -12,13 +12,17 @@ import { Router } from '@angular/router';
 export class CheckOutComponent implements OnInit {
   cartModal: cart = new cart();
   productData: any[] = [];
-  count: number= 1;
-  total!: number ;
+  count!: number;
+  total!: any ;
+  cartTotal: any[] =[] ;
   cartCound!: number;
   constructor(
     private productService: ProductService,
-    private router: Router) {}
+    private router: Router) {
+      this.calTotal();
+    }
   ngOnInit() {
+    // this.calTotal();
     this.getData();
     // this.calTotal();
     this.productService.cartCount.subscribe( res => {
@@ -26,6 +30,7 @@ export class CheckOutComponent implements OnInit {
     })
   }
 getData() {
+  this.calTotal();
   this.productService.getCartProduct().subscribe( res => {
     // this.cartModal = res;
     console.log(res);
@@ -34,23 +39,32 @@ getData() {
   })
 }
 calTotal() {
-  this.productData.forEach(ele => {
-     this.total = ele.price * ele.quntity;
-     this.total
-     console.log(this.total);
-  });
+  for (let i=0; i<this.productData.length; i++) {
+        this.total = this.productData[i].price * this.productData[i].quntity;
+       this.cartTotal.push(this.total);
+       console.log(this.cartTotal);
+}
+   this.count =   this.cartTotal.reduce((a,b) => a +b, 0 );
+  // this.productData.forEach(ele => {
+  //    this.total = ele.price * ele.quntity;
+
+  //    return this.total
+  // });
   // console.log(this.total);
   // var d = data.forEach(ele => {
   //   console.log(ele.title);
   // })
 }
-  onIncrement(): void {
-    this.count += 1;
+  onIncrement(id:any): void {
+   let product = this.productData.find(ele => ele.id == id);
+   product.quntity += 1;
+   console.log(product);
     }
 
-    onDecrement(): void {
-      if(this.count > 1 ) {
-          this.count -= 1;
+    onDecrement(id:any): void {
+      let product = this.productData.find(ele => ele.id == id);
+      if(product.quntity > 1 ) {
+        product.quntity -= 1;
       }
     }
 
@@ -70,16 +84,18 @@ calTotal() {
       console.log(this.productData);
           this.productService.sendCartToEmail(this.productData).subscribe( res => {
             console.log(res);
+          });
+          this.emptyCartData();
+   }
 
-            // this.productService.removeCartData(this.productData).subscribe( res => {
-            //   console.log(res);
-            //   this.productData = res;
-            //   this.getData();
-            // });
-        });
-
-    }
-
+emptyCartData() {
+  this.productData.forEach( ele => {
+    this.productService.removeCartData(ele.id).subscribe( res => {
+        this.getData();
+        this.productService.cartCount.next(0);
+      });
+  })
+}
     backToProductPage() {
         this.router.navigateByUrl('product');
     }

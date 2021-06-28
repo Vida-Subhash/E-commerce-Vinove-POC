@@ -4,7 +4,7 @@ height: 87vh;
 
 .row_1 {
   display: grid;
-  grid-template-columns: 150px 200px    100px 1fr;
+  grid-template-columns: 120px 250px 200px 120px  1fr;
   align-items: center;
   height: 3vh;
   border-bottom: solid 1px;
@@ -20,7 +20,7 @@ height: 5vh;
   padding-top: 8px;
   padding-bottom: 50px;
   display: grid;
-  grid-template-columns: 120px 200px    100px 100px 100px 1fr;
+  grid-template-columns: 120px 250px 200px 120px  1fr;
   align-items: center;
   height: 3vh;
   border-bottom: solid 1px;
@@ -32,8 +32,10 @@ height: 5vh;
   padding-left: 10px;
   // text-align: center;
 }
-.quntity, .price{
-  text-align: center;
+.quntity{
+  display: flex;
+  justify-content: center;
+  // text-align: center;
 }
 .label {
   font-size: larger;
