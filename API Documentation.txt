@@ -1,3 +1,12 @@
 Created Server.js file for sending Mail for User Registation.
 
 
+ <div *ngIf="isLoggedIn" style="display: flex; justify-content: center; align-items: center;">
+            <div class="search-bar">
+              <input  [(ngModel)]="search"  class="search-input"  matInput placeholder="search product" >
+
+            </div>
+            <div class="search-icon" style="padding-top: 15px; padding-left: 10px; cursor: pointer;">
+              <mat-icon  (click)="searchBtn()">search</mat-icon>
+            </div>
+  </div>

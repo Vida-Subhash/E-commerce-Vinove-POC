@@ -79,7 +79,7 @@ sendCartToEmail( data: any) {
   return this.http.post(this.serverUrl, data);
 }
 
-serach() {
-  this.searchString.asObservable();
+sendSerachString(value:string) {
+  this.searchString.next(value);
 }
 }

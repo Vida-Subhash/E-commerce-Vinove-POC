@@ -18,10 +18,18 @@
   <div class="title">
     <span>E-commerce App</span>
   </div>
-  <div *ngIf="isLoggedIn" class="search-bar">
-        <input [(ngModel)]="search" (change)="emitData()" class="search-input"  matInput placeholder="search product" >
+  <div *ngIf="isLoggedIn" style="display: flex; justify-content: center; align-items: center;">
+    <div class="search-bar">
+      <input  [(ngModel)]="search"  class="search-input"  matInput placeholder="search product" >
 
-  </div>
+    </div>
+    <div class="search-icon" style="padding-top: 15px; padding-left: 10px; cursor: pointer;">
+      <mat-icon  (click)="searchBtn()">search</mat-icon>
+    </div>
+</div>
+  <!-- <div *ngIf="isLoggedIn" class="search-bar">
+        <input [(ngModel)]="search" (change)="emitData(search)" class="search-input"  matInput placeholder="search product" >
+  </div> -->
   <div *ngIf="isLoggedIn" class="buttons">
     <button style="padding-right: 40px;" mat-icon-button class="example-icon favorite-icon" (click)="cart()" aria-label="Example icon-button with heart icon">
       <mat-icon [matBadgeHidden] = "parentData == 0"  matBadge="{{parentData}}" MatBadgeSize="large" matBadgeColor="warn">shopping_cart</mat-icon>

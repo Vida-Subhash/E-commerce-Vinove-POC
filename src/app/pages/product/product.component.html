@@ -1,3 +1,5 @@
+
+ <app-header style="display: none;"  (childevent)="getChildValue($event)"  ></app-header>
  <div  class="main">
    <div  class="filter">
      <div style="text-align: center; font-size: large;">
@@ -26,7 +28,6 @@
     </div>
     <!-- <div  class="search-bar">
       <input [(ngModel)]="search" class="search-input"  matInput placeholder="search product" >
-      <span>{{search}}</span>
 </div> -->
     <div style=" font-size: large;">
       <span> Filter by price: </span>
@@ -41,11 +42,11 @@
    </div>
    <div  class="container_1" >
 
-    <div  class="product" *ngFor="let item of product ">
+    <div  class="product" *ngFor="let item of product |searchProduct: search">
     <mat-card  class="example-card">
         <img   src="{{item?.image}}" alt="Product image">
       <mat-card-content>
-        <p style="text-align: justify;"> <strong> {{item?.title}}  </strong></p>
+        <p style="text-align: justify;"> <strong> {{item?.title }}  </strong></p>
         <p style="text-align: justify;"> <strong>Description :-</strong> {{item?.description | truncate}} </p>
         <p style="text-align: justify;"> <strong>Price : -</strong> &nbsp;$ {{item?.price}} </p>
         <p style="text-align: justify;"> <strong>Category</strong> {{item?.category}} </p>
@@ -58,7 +59,7 @@
 </div>
 </div>
 
-<!-- <app-header  (childevent)="getChildValue($event)"  ></app-header> -->
+
 
 
 

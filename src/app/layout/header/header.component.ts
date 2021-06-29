@@ -16,17 +16,23 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
+    private prouctService: ProductService
   ) { }
 
 
   ngOnInit(): void {
+
+
     this.authService.isLoggedIn.subscribe( res => {
       this.isLoggedIn = res;
       console.log(this.isLoggedIn);
     });
 
   }
-  emitData() {
+  searchBtn() {
+    this.prouctService.sendSerachString(this.search);
+  }
+  emitData(s:any) {
     this.childevent.emit(this.search);
     console.log("header componet", this.search);
   }
