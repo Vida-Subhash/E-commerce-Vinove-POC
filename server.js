@@ -62,10 +62,10 @@ async function sendCartData(data, callback) {
     html: `
             <h1> Oder Details </h1>
             <div style="border: solid 1px black;  width: 250px;">
-            <img src="${data[0].image}" style="width: 150px; height: 150px; padding: 5px; padding-left: 50px;" alt="">
-            <h3 style="text-align: justify;">${data[0].title}</h3>
-            <p>Price: $${data[0].price}</p>
-            <p>Quntity: ${data[0].quntity}</p>
+            <img src="${data.image}" style="width: 150px; height: 150px; padding: 5px; padding-left: 50px;" alt="">
+            <h3 style="text-align: justify;">${data.title}</h3>
+            <p>Price: $${data.price}</p>
+            <p>Quntity: ${data.quntity}</p>
             </div>
           `
   };

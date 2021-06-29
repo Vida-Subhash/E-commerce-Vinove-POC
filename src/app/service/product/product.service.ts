@@ -18,6 +18,7 @@ export class ProductService {
     return this.http.get<any>('http://localhost:3000/products')
     .pipe(map((res ) => {
       // console.log(res);
+      this.isLoading.next(true);
       return res;
     }));
   }

@@ -5,6 +5,8 @@
   <div class="product-name label">Name</div>
   <div class="quntity label">Quntity</div>
   <div class="p-image label" >Price</div>
+  <div></div>
+  <div>Total</div>
 </div>
 <div class="data-1">
 <div class="data" *ngFor="let data of productData">
@@ -24,19 +26,20 @@
       <mat-icon  (click)="onDecrement(data.id)">remove</mat-icon>
     </div>
   </div>
-  <div class="price"> {{data.price*data.quntity}}</div>
+  <div class="price"> {{data.price}}</div>
 
   <div style="text-align: start;">
     <mat-icon color="warn" (click)="deleteItem(data.id)">delete</mat-icon>
   </div>
+  <div>{{data.total}}</div>
 </div>
 </div>
 
 <div class="total" style="text-align: end;">
-    <Span style="padding-right: 100px;">Grand Total : <strong>{{count}}</strong></Span>
+    <Span style="padding-right: 100px;">Grand Total : <strong>{{total |number: '.2'}}</strong></Span>
     <span style="padding-right: 50px;">
 
-      <button style="width: 15rem;" (click)="senCartData()" mat-flat-button color="primary">Check out</button>
+      <button  style="width: 15rem;" (click)="senCartData()" mat-flat-button color="primary">Check out</button>
       <!-- <button style="width: 15rem;" (click)="calTotal()" mat-flat-button color="primary">Total</button> -->
     </span>
 </div>

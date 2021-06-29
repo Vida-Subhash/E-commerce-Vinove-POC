@@ -18,5 +18,7 @@ export class AppComponent {
     })
   }
   title = 'e-commerce-app';
+  getChildValue() {
 
+  }
 }

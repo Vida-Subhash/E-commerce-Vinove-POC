@@ -15,14 +15,14 @@ export class ProductComponent implements OnInit{
   cartModal: cart = new cart();
   count:number= 0;
   fliter: any[] = [];
-  string:string = '';
+  string:string = "";
   //
   cartProduct: any[] = [];
   @Output() public childevent = new EventEmitter();
-  search:any = '';
+  search:string = '';
   cartProducts!: any[];
   constructor(
-    private productService: ProductService,
+    public productService: ProductService,
     private toastr: ToastrService) { }
 
 
@@ -53,7 +53,11 @@ export class ProductComponent implements OnInit{
     // if(this.cartProducts) {
     //       for(let i=0; i<this.cartProducts.length; i++ ) {
     //         if(this.cartProducts[i].id == id) {
-    //           this.productService.updateQuntity(id).
+    //           this.productService.updateQuntity(id).subscribe( res => {
+    //             console.log(res);
+    //             this.cartModal.quntity = res.quntity +1;
+    //             console.log(this.cartModal.quntity);
+    //           })
     //         }
     //       }
     // }
@@ -98,7 +102,9 @@ getCategory(selectedChip : string) {
   this.product = res.filter((res:any) => res.category == selectedChip);
   });
 }
-
+getChildValue(text:any) {
+  console.log(text);
+}
 
 }
 

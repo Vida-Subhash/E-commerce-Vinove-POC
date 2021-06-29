@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { cart } from '../../modal/user.modal';
 import { ProductService } from 'src/app/service/product/product.service';
 import { Router } from '@angular/router';
+import { retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-check-out',
@@ -13,14 +14,12 @@ export class CheckOutComponent implements OnInit {
   cartModal: cart = new cart();
   productData: any[] = [];
   count!: number;
-  total!: any ;
+  total: number = 0;
   cartTotal: any[] =[] ;
   cartCound!: number;
   constructor(
-    private productService: ProductService,
-    private router: Router) {
-      this.calTotal();
-    }
+    public productService: ProductService,
+    private router: Router) { }
   ngOnInit() {
     // this.calTotal();
     this.getData();
@@ -30,27 +29,29 @@ export class CheckOutComponent implements OnInit {
     })
   }
 getData() {
-  this.calTotal();
   this.productService.getCartProduct().subscribe( res => {
     // this.cartModal = res;
     console.log(res);
     this.productData = res;
     this.cartCound = res.length;
+   this.productData = this.productData.map( ele => {
+      let obj = {
+        ...ele,
+        total: ele.price * ele.quntity
+      }
+      console.log("OBJ printed",obj);
+      return obj;
+    })
+    this.calTotal();
+    console.log(this.productData);
   })
 }
 calTotal() {
-  for (let i=0; i<this.productData.length; i++) {
-        this.total = this.productData[i].price * this.productData[i].quntity;
-       this.cartTotal.push(this.total);
-       console.log(this.cartTotal);
-}
-   this.count =   this.cartTotal.reduce((a,b) => a +b, 0 );
-  // this.productData.forEach(ele => {
-  //    this.total = ele.price * ele.quntity;
-
-  //    return this.total
-  // });
-  // console.log(this.total);
+  console.log("checkout console", this.productData);
+  this.productData.forEach(ele => {
+      this.total = ele.total + this.total;
+  });
+  console.log(this.total);
   // var d = data.forEach(ele => {
   //   console.log(ele.title);
   // })
@@ -58,6 +59,8 @@ calTotal() {
   onIncrement(id:any): void {
    let product = this.productData.find(ele => ele.id == id);
    product.quntity += 1;
+  product.total = product.quntity * product.price;
+  this.calTotal();
    console.log(product);
     }
 
@@ -65,6 +68,8 @@ calTotal() {
       let product = this.productData.find(ele => ele.id == id);
       if(product.quntity > 1 ) {
         product.quntity -= 1;
+        product.total = product.quntity * product.price;
+        this.calTotal();
       }
     }
 
@@ -82,10 +87,16 @@ calTotal() {
     senCartData() {
       this.calTotal();
       console.log(this.productData);
-          this.productService.sendCartToEmail(this.productData).subscribe( res => {
-            console.log(res);
-          });
-          this.emptyCartData();
+      // setTimeout(() => {
+      //   this.productService.sendCartToEmail(this.productData).subscribe( res => {
+      //     console.log(res);
+      //   });
+      //   this.emptyCartData();
+      // },5000)
+          // this.productService.sendCartToEmail(this.productData).subscribe( res => {
+          //   console.log(res);
+          // });
+          // this.emptyCartData();
    }
 
 emptyCartData() {

@@ -19,7 +19,7 @@
     <span>E-commerce App</span>
   </div>
   <div *ngIf="isLoggedIn" class="search-bar">
-        <input [(ngModel)]="search" class="search-input"  matInput placeholder="search product" >
+        <input [(ngModel)]="search" (change)="emitData()" class="search-input"  matInput placeholder="search product" >
 
   </div>
   <div *ngIf="isLoggedIn" class="buttons">

@@ -1,5 +1,5 @@
- <div class="main">
-   <div class="filter">
+ <div  class="main">
+   <div  class="filter">
      <div style="text-align: center; font-size: large;">
        <p> Filter   by categories: </p>
      </div>
@@ -41,7 +41,7 @@
    </div>
    <div  class="container_1" >
 
-    <div  class="product" *ngFor="let item of product |searchProduct: search">
+    <div  class="product" *ngFor="let item of product ">
     <mat-card  class="example-card">
         <img   src="{{item?.image}}" alt="Product image">
       <mat-card-content>
@@ -50,7 +50,7 @@
         <p style="text-align: justify;"> <strong>Price : -</strong> &nbsp;$ {{item?.price}} </p>
         <p style="text-align: justify;"> <strong>Category</strong> {{item?.category}} </p>
       </mat-card-content>
-      <mat-card-actions style="text-align: center;">
+      <mat-card-actions style="text-align: center; padding-bottom: 10px;">
         <button style="width: 200px;" (click)="addToCard(item.id)" mat-raised-button color="accent">Add to Cart</button>
        </mat-card-actions>
     </mat-card><br><br>
@@ -58,7 +58,7 @@
 </div>
 </div>
 
-
+<!-- <app-header  (childevent)="getChildValue($event)"  ></app-header> -->
 
 
 
