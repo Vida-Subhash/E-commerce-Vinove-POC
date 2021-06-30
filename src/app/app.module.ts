@@ -19,7 +19,6 @@ import { AuthGaurdService } from './service/auth-gaurd/auth-gaurd.service';
 import { IntercepterService } from './service/intercepter/intercepter.service';
 import { TruncatePipe } from './pipes/char-limit/truncate.pipe';
 import { SearchProductPipe } from './pipes/search-product/search-product.pipe';
-import { FilterbycategoriesPipe } from './pipes/filter-category/filterbycategories.pipe';
 import { ProductService } from './service/product/product.service';
 
 @NgModule({
@@ -33,7 +32,6 @@ import { ProductService } from './service/product/product.service';
     CheckOutComponent,
     TruncatePipe,
     SearchProductPipe,
-    FilterbycategoriesPipe,
   ],
   imports: [
     BrowserModule,

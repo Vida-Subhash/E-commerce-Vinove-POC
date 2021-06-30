@@ -21,24 +21,30 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-
     this.authService.isLoggedIn.subscribe( res => {
       this.isLoggedIn = res;
-      console.log(this.isLoggedIn);
+      // console.log(this.isLoggedIn);
     });
 
+    this.prouctService.cartCount.subscribe( res => {
+      this.parentData = res;
+    });
   }
+
   searchBtn() {
     this.prouctService.sendSerachString(this.search);
   }
+
   emitData(s:any) {
+    this.prouctService.searchString.next(this.search);
     this.childevent.emit(this.search);
     console.log("header componet", this.search);
   }
+
   cart() {
     this.router.navigateByUrl('checkout');
   }
+
   logOut() {
       this.router.navigateByUrl('signin');
       this.authService.isLoggedIn.next(false);

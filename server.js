@@ -9,7 +9,7 @@ app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
 
 app.listen(8000, () => {
-  console.log("The server started on port 3000 !!!!!!");
+  console.log("The server started on port 8000 !!!!!!");
 });
 
 app.get("/", (req, res) => {
@@ -28,12 +28,14 @@ app.post("/sendmail", (req, res) => {
 });
 app.post("/sendcartdata", (req, res) => {
   console.log("request came");
-  let data = req.body;
+  var data = req.body;
   sendCartData(data, cart => {
+
     console.log(`The mail has beed send 😃 and the id is ${cart.messageId}`);
     res.send(cart);
   });
 });
+
 
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport({
@@ -51,23 +53,21 @@ var transporter = nodemailer.createTransport({
 async function sendCartData(data, callback) {
   console.log(data);
   // let productdata = req.body;
-  var d = data.forEach(ele => {
-      console.log(ele.title);
-    });
-    console.log("D is printed",d);
+    var content = data.reduce(function(a, b) {
+      return a + `<div > <tr><td><img style="height: 30px; width: 30px;" src="${b.image}">`  + '</td><td text-align: justify;>' + b.title + '</td><td style="padding-left: 30px">' + b.quntity + '</td><td style="padding-left: 30px">' + b.price + '</td><td> </div>';
+    }, '');
+    console.log(content);
   let cardtData = {
     from: ' <testu9810@mail.com>', // sender address
     to: "subhash.ramshetti9768@gmail.com", // list of receivers
-    subject: "Oder placed successfully", // Subject line
-    html: `
-            <h1> Oder Details </h1>
-            <div style="border: solid 1px black;  width: 250px;">
-            <img src="${data.image}" style="width: 150px; height: 150px; padding: 5px; padding-left: 50px;" alt="">
-            <h3 style="text-align: justify;">${data.title}</h3>
-            <p>Price: $${data.price}</p>
-            <p>Quntity: ${data.quntity}</p>
-            </div>
-          `
+    subject: "Oder confirmation", // Subject line
+    html:
+    `<h1> Order placed Sucessfully 🎉🎉🎉</h1>
+   <div  ><table><thead ><tr ><th>image</th><th>title</th><th style="padding-left: 20px">Quntity</th><th style="padding-left: 20px">Price</th></tr></thead><tbody> ${content} </tbody></table></div>
+
+ `
+
+
   };
 
   let cart = await transporter.sendMail(cardtData);

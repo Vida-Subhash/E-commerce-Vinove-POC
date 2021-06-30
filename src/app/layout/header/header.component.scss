@@ -10,7 +10,9 @@
   height: 7vh;
 }
 .search-bar {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .search-input{
   border: solid 1px white;
@@ -24,8 +26,9 @@
   padding-top: 15px;
   padding-left: 10px;
   cursor: pointer;
-  zoom: 20%;
 }
 .buttons{
-  text-align: end;
+display: flex;
+align-items: flex-end;
+justify-content: center;
 }

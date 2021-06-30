@@ -106,7 +106,9 @@ getCategory(selectedChip : string) {
   });
 }
 getChildValue(text:any) {
-  console.log(text);
+  this.productService.searchString.subscribe( res => {
+    text = res;
+  })
 }
 
 }
