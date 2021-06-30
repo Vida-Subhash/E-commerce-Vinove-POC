@@ -1,5 +1,8 @@
 
- <div *ngIf="cartCound > 0" class="container">
+ <div *ngIf="cartCound > 0  " class="container">
+  <div *ngIf="productService.isLoading | async" class="loader-container">
+    <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+  </div>
 <div class="row_1">
   <div class="p-image label">Product Image</div>
   <div class="product-name label">Name</div>
@@ -31,7 +34,7 @@
   <div style="text-align: start;">
     <mat-icon color="warn" (click)="deleteItem(data.id)">delete</mat-icon>
   </div>
-  <div>{{data.total}}</div>
+  <div>{{data.total  |number: '.2'}}</div>
 </div>
 </div>
 
@@ -39,7 +42,7 @@
     <Span style="padding-right: 100px;">Grand Total : <strong>{{total |number: '.2'}}</strong></Span>
     <span style="padding-right: 50px;">
 
-      <button  style="width: 15rem;" (click)="senCartData()" mat-flat-button color="primary">Check out</button>
+      <button style="width: 15rem;" (click)="senCartData()" mat-flat-button color="primary">Check out</button>
       <!-- <button style="width: 15rem;" (click)="calTotal()" mat-flat-button color="primary">Total</button> -->
     </span>
 </div>
@@ -52,5 +55,9 @@
           Back to product page
         </button>
       </div>
+      <div *ngIf="productService.isLoading | async" class="loader-container">
+        <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+      </div>
 </div>
+
 

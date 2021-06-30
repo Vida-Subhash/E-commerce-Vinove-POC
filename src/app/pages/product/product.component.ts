@@ -31,6 +31,7 @@ export class ProductComponent implements OnInit{
       this.search = res;
       console.log("product component",this.search);
     })
+
     this.getProducts();
     this.productService.getAllCategories().subscribe( res => {
     this.catgories = res;

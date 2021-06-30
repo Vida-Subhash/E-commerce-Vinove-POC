@@ -80,14 +80,23 @@ calTotal() {
     }
 
     senCartData() {
-      this.calTotal();
+      // this.calTotal();
       console.log(this.productData);
       setTimeout(() => {
+        this.productService.isLoading.next(true);
+        // let totalObj = {
+        //   grandTotal: this.total.toFixed(2)
+        // }
+        // console.log(totalObj.grandTotal);
+        // this.productData.push(totalObj);
         this.productService.sendCartToEmail(this.productData).subscribe( res => {
+          // console.log(this.productData);
           console.log(res);
+          console.log(this.productData);
         });
         this.emptyCartData();
-      },5000)
+      },5000);
+      this.productService.isLoading.next(false);
           // this.productService.sendCartToEmail(this.productData).subscribe( res => {
           //   console.log(res);
           // });

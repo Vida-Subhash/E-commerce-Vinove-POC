@@ -22,15 +22,15 @@ app.post("/sendmail", (req, res) => {
   console.log("request came");
   let user = req.body;
   sendVMail(user, info => {
-    console.log(`The mail has beed send 😃 and the id is ${info.messageId}`);
+    // console.log(`The mail has beed send 😃 and the id is ${info.messageId}`);
     res.send(info);
   });
 });
 app.post("/sendcartdata", (req, res) => {
   console.log("request came");
-  var data = req.body;
+  let data = req.body;
+  // let total = req.body;
   sendCartData(data, cart => {
-
     console.log(`The mail has beed send 😃 and the id is ${cart.messageId}`);
     res.send(cart);
   });
@@ -50,24 +50,24 @@ var transporter = nodemailer.createTransport({
   }
 });
 
-async function sendCartData(data, callback) {
-  console.log(data);
-  // let productdata = req.body;
-    var content = data.reduce(function(a, b) {
-      return a + `<div > <tr><td><img style="height: 30px; width: 30px;" src="${b.image}">`  + '</td><td text-align: justify;>' + b.title + '</td><td style="padding-left: 30px">' + b.quntity + '</td><td style="padding-left: 30px">' + b.price + '</td><td> </div>';
+async function sendCartData(data,  callback) {
+  console.log("Console at line 54",data);
+  // console.log("console at line 55", data[0].grandTotal);
+
+    let content = data.reduce(function(a, b) {
+      return a + `<div > <tr><td><img style="height: 30px; width: 30px;" src="${b?.image}">`  + '</td><td style="text-align: justify;">' + b?.title + '</td><td style="padding-left: 30px">' + b?.quntity + '</td><td style="padding-left: 30px">' + b?.price + '</td><td> </div>';
     }, '');
-    console.log(content);
+    // console.log(content);
+    // console.log(total);
   let cardtData = {
     from: ' <testu9810@mail.com>', // sender address
-    to: "subhash.ramshetti9768@gmail.com", // list of receivers
+    to: "subhash.ramshetti9768@gmail.com",  // list of receivers
     subject: "Oder confirmation", // Subject line
-    html:
-    `<h1> Order placed Sucessfully 🎉🎉🎉</h1>
-   <div  ><table><thead ><tr ><th>image</th><th>title</th><th style="padding-left: 20px">Quntity</th><th style="padding-left: 20px">Price</th></tr></thead><tbody> ${content} </tbody></table></div>
-
- `
-
-
+    html:`
+        <h1> Order placed Sucessfully 🎉🎉🎉</h1>
+        <div  ><table><thead ><tr ><th>image</th><th>title</th><th style="padding-left: 20px">Quntity</th><th style="padding-left: 20px">Price</th></tr></thead><tbody> ${content} </tbody></table></div>
+        <div style="text-align: end; font-size: larger; color: brown;"> Total: <strong>${content?.grandTotal}</strong> </div>
+        `
   };
 
   let cart = await transporter.sendMail(cardtData);
@@ -75,7 +75,7 @@ async function sendCartData(data, callback) {
 }
 
 async function sendVMail(user, callback) {
-  console.log(user.email);
+  // console.log(user.email);
   let mailOptions = {
     from: ' <testu9810@mail.com>', // sender address
     to: user.email, // list of receivers

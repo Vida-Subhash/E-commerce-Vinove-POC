@@ -47,7 +47,7 @@
         <img   src="{{item?.image}}" alt="Product image">
       <mat-card-content>
         <p style="text-align: justify;"> <strong> {{item?.title }}  </strong></p>
-        <p style="text-align: justify;"> <strong>Description :-</strong> {{item?.description | truncate}} </p>
+        <p style="text-align: justify;"  matTooltip="{{item?.description}}"> <strong>Description :-</strong> {{item?.description | truncate}} </p>
         <p style="text-align: justify;"> <strong>Price : -</strong> &nbsp;$ {{item?.price}} </p>
         <p style="text-align: justify;"> <strong>Category</strong> {{item?.category}} </p>
       </mat-card-content>
