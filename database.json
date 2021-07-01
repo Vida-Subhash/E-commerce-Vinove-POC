@@ -49,7 +49,6 @@
       "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
       "quntity": 1
     },
-
     {
       "id": 7,
       "title": "White Gold Plated Princess",
@@ -122,7 +121,6 @@
       "image": "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
       "quntity": 1
     },
-
     {
       "id": 16,
       "title": "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
@@ -168,7 +166,6 @@
       "image": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
       "quntity": 1
     },
-
     {
       "id": 17,
       "title": "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
@@ -205,7 +202,6 @@
       "image": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
       "quntity": 1
     }
-
   ],
   "cart": []
 }

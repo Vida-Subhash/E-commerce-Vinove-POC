@@ -83,7 +83,7 @@ calTotal() {
       // this.calTotal();
       console.log(this.productData);
       setTimeout(() => {
-        this.productService.isLoading.next(true);
+        // this.productService.isLoading.next(true);
         // let totalObj = {
         //   grandTotal: this.total.toFixed(2)
         // }

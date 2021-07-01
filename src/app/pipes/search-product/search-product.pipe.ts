@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { cart } from 'src/app/modal/user.modal';
+
 
 @Pipe({
   name: 'searchProduct',
@@ -8,9 +8,7 @@ import { cart } from 'src/app/modal/user.modal';
 
 export class SearchProductPipe implements PipeTransform  {
 transform(items: any[], searchText: string): any[] {
-  if(!items) return [];
-  if(!searchText) return items;
-
+  if(!items && !searchText ) return [];
   return this.searchItems(items, searchText);
  }
 

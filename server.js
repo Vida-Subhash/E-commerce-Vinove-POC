@@ -55,7 +55,7 @@ async function sendCartData(data,  callback) {
   // console.log("console at line 55", data[0].grandTotal);
 
     let content = data.reduce(function(a, b) {
-      return a + `<div > <tr><td><img style="height: 30px; width: 30px;" src="${b?.image}">`  + '</td><td style="text-align: justify;">' + b?.title + '</td><td style="padding-left: 30px">' + b?.quntity + '</td><td style="padding-left: 30px">' + b?.price + '</td><td> </div>';
+      return a + `<div > <tr><td><img style="height: 30px; width: 30px;" src="${b?.image}">`  + `</td><td style="text-align: justify;">` + b?.title + `</td><td style="padding-left: 30px">` + b?.quntity + `</td><td style="padding-left: 30px">` + b?.price + `</td><td> </div>`;
     }, '');
     // console.log(content);
     // console.log(total);
@@ -66,7 +66,7 @@ async function sendCartData(data,  callback) {
     html:`
         <h1> Order placed Sucessfully 🎉🎉🎉</h1>
         <div  ><table><thead ><tr ><th>image</th><th>title</th><th style="padding-left: 20px">Quntity</th><th style="padding-left: 20px">Price</th></tr></thead><tbody> ${content} </tbody></table></div>
-        <div style="text-align: end; font-size: larger; color: brown;"> Total: <strong>${content?.grandTotal}</strong> </div>
+      <!--  <div style="text-align: end; font-size: larger; color: brown;"> Total: <strong>${content?.grandTotal}</strong> </div> -->
         `
   };
 

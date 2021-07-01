@@ -33,16 +33,16 @@
       <span> Filter by price: </span>
     <mat-form-field >
   <mat-select style="text-align: center;">
-    <mat-option>-- None --</mat-option>
-    <mat-option (click)="lowToHigh()" value="Low to High">Low to High</mat-option>
-    <mat-option (click)="highToLow()" value="High to Low">High to Low</mat-option>
+    <!-- <mat-option >-- None --</mat-option> -->
+    <mat-option (click)="lowToHigh()"  value="low">Low to High</mat-option>
+    <mat-option (click)="highToLow()"  value="high">High to Low</mat-option>
   </mat-select>
 </mat-form-field>
     </div>
    </div>
    <div  class="container_1" >
 
-    <div  class="product" *ngFor="let item of product |searchProduct: search">
+    <div  class="product" *ngFor="let item of product |searchProduct: search |FilterByPrice: sortValue">
     <mat-card  class="example-card">
         <img   src="{{item?.image}}" alt="Product image">
       <mat-card-content>

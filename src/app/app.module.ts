@@ -20,6 +20,7 @@ import { IntercepterService } from './service/intercepter/intercepter.service';
 import { TruncatePipe } from './pipes/char-limit/truncate.pipe';
 import { SearchProductPipe } from './pipes/search-product/search-product.pipe';
 import { ProductService } from './service/product/product.service';
+import { FilterByPrice } from './pipes/filter-by-price/filterbyprice.pipe';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ProductService } from './service/product/product.service';
     CheckOutComponent,
     TruncatePipe,
     SearchProductPipe,
+    FilterByPrice,
   ],
   imports: [
     BrowserModule,

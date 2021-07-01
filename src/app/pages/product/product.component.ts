@@ -16,6 +16,7 @@ export class ProductComponent implements OnInit{
   count:number= 0;
   fliter: any[] = [];
   string:string = "";
+  sortValue:string = "";
   //
   cartProduct: any[] = [];
   @Output() public childevent = new EventEmitter();
@@ -87,16 +88,12 @@ productCart() {
 
 // Sort the product by price.
 lowToHigh() {
-   this.product.sort(function (a, b) {
-    return  a.price - b.price;
-  });
+    this.sortValue = "low"
 }
 
 // Sort the product by price.
 highToLow() {
-   this.product.sort(function (a, b) {
-    return  b.price - a.price;
-  });
+  this.sortValue = "high"
 }
 
 // get SelectedChip value and filter accordingly.
